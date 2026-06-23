@@ -9,6 +9,9 @@ public class Department {
     setName(name);
   }
 
+  public Department() {
+  }
+
   public int getId() {
     return id;
   }
