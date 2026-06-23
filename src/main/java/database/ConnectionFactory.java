@@ -40,7 +40,10 @@ public class ConnectionFactory {
     return instance;
   }
 
-  public Connection getConnection() {
+  public static Connection getConnection() {
+    if (connection == null) {
+      getInstance();
+    }
     return connection;
   }
 
