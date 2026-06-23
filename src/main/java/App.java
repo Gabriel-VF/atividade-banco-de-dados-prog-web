@@ -39,16 +39,16 @@ public class App {
     dp1 = departmentDAO.findById(1);
     System.out.printf("Departamento %s: %s\n", dp1.getId(), dp1.getName());
 
-    // Testando delete() para departamento não vai funcionar se vendedor é dependência de outro registro
-    System.out.println("\n> [Testando delete() para departamento. Não irá funcionar se departamento é dependência de outro registro]");
-    departmentDAO.deleteById(13);
-
     // Testando insert() para departamento
     System.out.println("\n> [Testando insert() para departamento]");
     String dpNovoNome = "Novo departamento de número " + (departmentDAO.findAll().size() + 1);
     System.out.println("\n> [Inserindo departamento: " + dpNovoNome + "]");
     Department dpInsert = new Department(0, dpNovoNome);
     departmentDAO.insert(dpInsert);
+
+    // Testando delete() para departamento não vai funcionar se vendedor é dependência de outro registro
+    System.out.println("\n> [Testando delete() para departamento. Não irá funcionar se departamento é dependência de outro registro]");
+    departmentDAO.deleteById(5);
 
     // Testando update() para departamento
     System.out.println("\n> [Testando update() para departamento]");
@@ -82,16 +82,15 @@ public class App {
     s1 = sellerDAO.findById(1);
     System.out.printf("Vendedor %s: %s\n", s1.getId(), s1.getEmail());
 
-    // Testando delete() para vendedor. Não irá funcionar se vendedor é dependência de outro registro
-    System.out.println("\n> [Testando delete() para vendedor. Não irá funcionar se vendedor é dependência de outro registro]");
-    sellerDAO.deleteById(10);
-
     // Testando insert() para departamento
     System.out.println("\n> [Testando insert() para vendedor]");
     String emailInsert = "novo.seller." + (sellerDAO.findAll().size() + 1) + "@gmail.com";
     System.out.println("\n> [Inserindo vendedor de email: " + emailInsert + "]");
     Seller sellerInsert = new Seller(0, "novo seller", emailInsert, LocalDate.now(), 1901.19, departmentDAO.findById(1));
-    sellerDAO.insert(sellerInsert);
+
+    // Testando delete() para vendedor. Não irá funcionar se vendedor é dependência de outro registro
+    System.out.println("\n> [Testando delete() para vendedor. Não irá funcionar se vendedor é dependência de outro registro]");
+    sellerDAO.deleteById(7);   sellerDAO.insert(sellerInsert);
 
     // Testando update() para vendedor
     System.out.println("\n> [Testando update() para vendedor]");
