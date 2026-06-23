@@ -11,7 +11,7 @@ public class App {
   public static void main(String[] args) throws Exception {
     ConnectionFactory.setUser("");
     ConnectionFactory.setPassword("");
-    Connection connection = ConnectionFactory.getInstance().getConnection();
+    Connection connection = ConnectionFactory.getConnection();
 
     DepartmentDAOImpl departmentDAOImpl = new DepartmentDAOImpl(connection);
 
