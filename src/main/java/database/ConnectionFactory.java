@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
   private final String databaseName = "loja_jdbc";
-  private String user = "";
-  private String password = "";
+  private static String user = "";
+  private static String password = "";
   private final String DRIVER = "com.mysql.cj.jdbc.Driver";
   private final String URL_PREFIX = "jdbc:mysql://localhost:3306/";
   private final String URL = URL_PREFIX + databaseName;
@@ -42,6 +42,14 @@ public class ConnectionFactory {
 
   public Connection getConnection() {
     return connection;
+  }
+
+  public static void setUser(String user) {
+    ConnectionFactory.user = user;
+  }
+
+  public static void setPassword(String password) {
+    ConnectionFactory.password = password;
   }
 
   public void closeConnection() {
